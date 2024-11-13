@@ -10,7 +10,7 @@ const Contact = () => {
           <div className="flex-1">
             <h3 className='text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r 
             from-green-400 to-blue-500 mb-4'>Let's Talk</h3>
-            <p>I'm open to discussing web development prjectgs or partnership opportunities.</p>
+            <p>I'm open to discussing web development projects or partnership opportunities.</p>
             <div className='mb-4 mt-8'>
               <FaEnvelope className='inline-block text-green-400 mr-2'></FaEnvelope>
               <a href="mailto:youremail@example.com" className='hover:underline'>
