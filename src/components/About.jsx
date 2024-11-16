@@ -30,11 +30,11 @@ const About = () => {
   useEffect(() => {
     if (startCounting) {
       const experienceInterval = setInterval(() => {
-        setExperience((prev) => (prev < 3 ? prev + 1 : 3));
+        setExperience((prev) => (prev < 2 ? prev + 1 : 2));
       }, 100);
 
       const projectsInterval = setInterval(() => {
-        setProjects((prev) => (prev < 50 ? prev + 1 : 50));
+        setProjects((prev) => (prev < 20 ? prev + 1 : 20));
       }, 20);
 
       const clientsInterval = setInterval(() => {

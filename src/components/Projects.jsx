@@ -25,6 +25,7 @@ const projects = [
     image: FullProject,
     github: "https://github.com/",
   },
+  
 ];
 
 const Projects = () => {
