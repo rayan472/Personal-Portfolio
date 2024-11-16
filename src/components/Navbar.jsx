@@ -6,8 +6,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className='fixed top-0 right-0 left-0 z-50 bg-black text-white px-8 md:px-16 lg:px-24'>
-      <div className='container py-2 flex justify-between items-center'>
+    <nav className='fixed top-0 right-0 left-0 z-50 bg-black text-white px-8 md:px-16 lg:px-25'>
+      <div className='container py-2 flex justify-around items-center'>
         <div className='text-2xl font-bold'>Rayan</div>
         <button className='md:hidden' onClick={() => setMenuOpen(!menuOpen)}>
           <svg
