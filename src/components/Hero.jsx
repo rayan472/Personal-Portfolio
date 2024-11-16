@@ -14,7 +14,6 @@ const Hero = () => {
   return (
     <>
       <div className='bg-black text-white text-center py-20'>
-        {/* Hero Image */}
         <motion.img
           src={HeroImage}
           alt=""
@@ -24,8 +23,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           whileHover={{ scale: 1.1 }}
         />
-
-        {/* Hero Text */}
+     
         <motion.h1
           className='text-4xl font-bold'
           initial={{ y: -50, opacity: 0 }}
@@ -47,8 +45,7 @@ const Hero = () => {
         >
           I specialize in building modern and responsive web applications.
         </motion.p>
-
-        {/* Buttons */}
+  
         <div className='mt-8 space-x-4'>
           <motion.button
             className='bg-gradient-to-r from-green-400 to-blue-500 text-white transform px-4 py-2 rounded-full'
@@ -71,7 +68,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Additional Sections */}
       <About />
       <Service />
       <Projects />
