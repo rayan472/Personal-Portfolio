@@ -1,7 +1,8 @@
 import React from "react";
+import { motion } from "framer-motion"; 
 import employeeMSImage from "../assets/employee-ms.png";
 import bookMSImage from "../assets/admin-dashboard.png";
-import FullProject from "../assets/fullProject.png"
+import FullProject from "../assets/fullProject.png";
 
 const projects = [
   {
@@ -25,29 +26,83 @@ const projects = [
     image: FullProject,
     github: "https://github.com/",
   },
-  
 ];
 
 const Projects = () => {
   return (
-    <div className="bg-black text-white py-20" id="project">
+    <motion.div
+      className="bg-black text-white py-20"
+      id="project"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
+        {/* Section Title */}
+        <motion.h2
+          className="text-4xl font-bold text-center mb-12"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          My Projects
+        </motion.h2>
+
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="bg-gray-800 p-6 rounded-lg hover:shadow-lg">
-              <img src={project.image} alt={project.name} className="rounded-lg mb-4 
-              w-full h-48 object-cover transform transition-transform duration-300 hover:scale-105" />
-              <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
-              <p className="text-gray-400 mb-4">{project.technologies}</p>
-              <a href={project.github} className="inline-block bg-gradient-to-r 
-              from-green-400 to-blue-500 text-white px-4 py-2 rounded-full" target="_blank"
-                rel="noopener noreferrer">GitHub</a>
-            </div>
+            <motion.div
+              key={project.id}
+              className="bg-gray-800 p-6 rounded-lg hover:shadow-lg"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              {/* Project Image */}
+              <motion.img
+                src={project.image}
+                alt={project.name}
+                className="rounded-lg mb-4 w-full h-48 object-cover transform transition-transform duration-300"
+                whileHover={{ scale: 1.1 }}
+              />
+              
+              {/* Project Name */}
+              <motion.h3
+                className="text-2xl font-bold mb-2"
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {project.name}
+              </motion.h3>
+
+              {/* Project Description */}
+              <motion.p
+                className="text-gray-400 mb-4"
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {project.technologies}
+              </motion.p>
+
+              {/* GitHub Link */}
+              <motion.a
+                href={project.github}
+                className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                GitHub
+              </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

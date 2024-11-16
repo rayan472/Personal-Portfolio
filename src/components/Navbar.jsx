@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const menuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+  };
+
   return (
-    <nav className='fixed top-0 right-0 left-0 z-50 bg-black text-white px-8 md:px-16 lg:px-25'>
-      <div className='container py-2 flex justify-between items-center'>
-        <div className='text-2xl font-bold'>Rayan</div>
-        <button className='md:hidden' onClick={() => setMenuOpen(!menuOpen)}>
+    <nav className="fixed top-0 right-0 left-0 z-50 bg-black text-white px-8 md:px-16 lg:px-20">
+      <div className="container mx-auto py-4 flex justify-between items-center">
+        <div className="text-2xl font-bold">Rayan</div>
+        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-white"
@@ -21,35 +28,91 @@ const Navbar = () => {
           </svg>
         </button>
 
-        <div className='hidden md:flex space-x-6'>
-          <a href="#about" className='hover:text-gray-400 hover:underline'>About Me</a>
-          <a href="#service" className='hover:text-gray-400 hover:underline'>Services</a>
-          <a href="#project" className='hover:text-gray-400 hover:underline'>Projects</a>
-          <a href="#contact" className='hover:text-gray-400 hover:underline'>Contact</a>
+        <div className="hidden md:flex space-x-6 lg:space-x-10">
+          <motion.a
+            href="#about"
+            className="hover:text-gray-400 hover:underline text-lg"
+            whileHover={{ scale: 1.1 }}
+          >
+            About Me
+          </motion.a>
+          <motion.a
+            href="#service"
+            className="hover:text-gray-400 hover:underline text-lg"
+            whileHover={{ scale: 1.1 }}
+          >
+            Services
+          </motion.a>
+          <motion.a
+            href="#project"
+            className="hover:text-gray-400 hover:underline text-lg"
+            whileHover={{ scale: 1.1 }}
+          >
+            Projects
+          </motion.a>
+          <motion.a
+            href="#contact"
+            className="hover:text-gray-400 hover:underline text-lg"
+            whileHover={{ scale: 1.1 }}
+          >
+            Contact
+          </motion.a>
         </div>
-        <button
-          className='bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline
-            transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full'
+        <motion.button
+          className="bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline lg:px-6 lg:py-2
+              transform transition-transform duration-300 hover:scale-105 rounded-full"
           onClick={() => navigate('/contact')}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
           Connect Me
-        </button>
+        </motion.button>
 
-        {menuOpen && (
-          <div className='absolute top-14 left-0 right-0 bg-black text-white py-4 flex flex-col items-center space-y-4 md:hidden'>
-            <a href="#about" className='hover:text-gray-400' onClick={() => setMenuOpen(false)}>About Me</a>
-            <a href="#service" className='hover:text-gray-400' onClick={() => setMenuOpen(false)}>Services</a>
-            <a href="#project" className='hover:text-gray-400' onClick={() => setMenuOpen(false)}>Projects</a>
-            <a href="#contact" className='hover:text-gray-400' onClick={() => setMenuOpen(false)}>Contact</a>
-            <button
-              className='bg-gradient-to-r from-green-400 to-blue-500 text-white
-                transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full'
-              onClick={() => { navigate('/contact'); setMenuOpen(false); }}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              className="absolute top-14 left-0 right-0 bg-black text-white py-4 flex flex-col items-center space-y-4 md:hidden"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={menuVariants}
+              transition={{ duration: 0.3 }}
             >
-              Connect Me
-            </button>
-          </div>
-        )}
+              <motion.a
+                href="#about"
+                className="hover:text-gray-400 text-lg"
+                onClick={() => setMenuOpen(false)}
+                whileHover={{ scale: 1.1 }}
+              >
+                About Me
+              </motion.a>
+              <motion.a
+                href="#service"
+                className="hover:text-gray-400 text-lg"
+                onClick={() => setMenuOpen(false)}
+                whileHover={{ scale: 1.1 }}
+              >
+                Services
+              </motion.a>
+              <motion.a
+                href="#project"
+                className="hover:text-gray-400 text-lg"
+                onClick={() => setMenuOpen(false)}
+                whileHover={{ scale: 1.1 }}
+              >
+                Projects
+              </motion.a>
+              <motion.a
+                href="#contact"
+                className="hover:text-gray-400 text-lg"
+                onClick={() => setMenuOpen(false)}
+                whileHover={{ scale: 1.1 }}
+              >
+                Contact
+              </motion.a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
