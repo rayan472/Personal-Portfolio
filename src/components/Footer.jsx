@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="flex-1 mb-4 md:mb-0">
             <h3 className="text-2xl font-bold mb-2">Rayan</h3>
             <p className="text-gray-400">
-              Full-Stack Developer based in the USA, specializing in web and
+              Fronted Developer based in the USA, specializing in web and
               software development.
             </p>
           </div>
@@ -37,7 +37,7 @@ const Footer = () => {
           justify-between items-center"
         >
           <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Yousaf. All rights reserved.
+            &copy; {new Date().getFullYear()} Rayan. All rights reserved.
           </p>
           <div className="flex space-x-4 my-4 md:my-0">
             <a href="https://www.facebook.com/" target="_blank" className="text-gray-400 hover:text-white">
