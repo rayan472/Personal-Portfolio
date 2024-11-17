@@ -24,7 +24,7 @@ const projects = [
     name: "Book MS",
     technologies: "Backend Project",
     image: FullProject,
-    github: "https://github.com/",
+    github: "https://github.com/workationist/workationist-frontend",
   },
 ];
 
