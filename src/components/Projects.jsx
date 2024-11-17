@@ -17,7 +17,7 @@ const projects = [
     name: "Blog App",
     technologies: "Full stack Project",
     image: employeeMSImage,
-    github: "https://github.com/rayan472/Ecommerce-Frontend-WebSite",
+    github: "https://ecommerce-frontend-web-site-iyly0sfe3-rayan472s-projects.vercel.app/",
   },
   {
     id: 3,
